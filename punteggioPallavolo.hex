@@ -1,0 +1,44 @@
+def on_button_pressed_a():
+    global A
+    A += 1
+input.on_button_pressed(Button.A, on_button_pressed_a)
+
+def on_button_pressed_ab():
+    global _set, A, B
+    basic.clear_screen()
+    _set += 1
+    basic.show_string("SET")
+    basic.show_number(_set)
+    A = 0
+    B = 0
+input.on_button_pressed(Button.AB, on_button_pressed_ab)
+
+def on_button_pressed_b():
+    global B
+    B += 1
+input.on_button_pressed(Button.B, on_button_pressed_b)
+
+B = 0
+A = 0
+_set = 0
+_set = 1
+A = 0
+B = 0
+
+def on_forever():
+    basic.show_string("A")
+    basic.show_number(A)
+    basic.show_string("-")
+    basic.show_string("B")
+    basic.show_number(B)
+    if _set == 5:
+        if A >= 15 and A - B > 1:
+            basic.show_string("A ha vinto!")
+        if B >= 15 and B - A > 1:
+            basic.show_string("B ha vinto!")
+    else:
+        if A >= 25 and A - B > 1:
+            basic.show_string("A ha vinto!")
+        if B >= 25 and B - A > 1:
+            basic.show_string("B ha vinto!")
+basic.forever(on_forever)
