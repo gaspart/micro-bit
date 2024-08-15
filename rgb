@@ -1,0 +1,13 @@
+basic.show_icon(IconNames.HEART)
+basic.pause(100)
+basic.clear_screen()
+range2 = Tinybit.RGB_Car_Program().range(0, 2)
+Tinybit.RGB_Car_Program().set_brightness(2)
+
+def on_forever():
+    # Sinistra
+    Tinybit.RGB_Car_Program().set_pixel_color(0, neopixel.colors(NeoPixelColors.RED))
+    # Destra
+    Tinybit.RGB_Car_Program().set_pixel_color(1, neopixel.colors(NeoPixelColors.GREEN))
+    Tinybit.RGB_Car_Program().show()
+basic.forever(on_forever)
