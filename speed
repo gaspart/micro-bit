@@ -1,0 +1,9 @@
+# Speed control
+basic.show_icon(IconNames.HEART)
+basic.pause(1000)
+basic.clear_screen()
+Tinybit.car_ctrl_speed(Tinybit.CarState.CAR_RUN, 0)
+basic.pause(500)
+Tinybit.car_ctrl_speed(Tinybit.CarState.CAR_RUN, 0)
+basic.pause(1000)
+Tinybit.car_ctrl(Tinybit.CarState.CAR_STOP)
