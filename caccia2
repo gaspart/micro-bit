@@ -1,0 +1,15 @@
+def on_received_number(receivedNumber):
+    global segnale
+    segnale = radio.received_packet(RadioPacketProperty.SIGNAL_STRENGTH)
+    basic.show_number(segnale)
+radio.on_received_number(on_received_number)
+
+segnale = 0
+for canale in range(256):
+    radio.set_group(canale)
+    if not (radio.received_packet(RadioPacketProperty.SIGNAL_STRENGTH) == 0):
+        radio.set_group(canale)
+        basic.show_icon(IconNames.YES)
+        break
+    basic.pause(500)
+segnale = 0
