@@ -1,0 +1,9 @@
+def on_received_number(receivedNumber):
+    global segnale
+    segnale = radio.received_packet(RadioPacketProperty.SIGNAL_STRENGTH)
+    basic.show_number(segnale)
+radio.on_received_number(on_received_number)
+
+segnale = 0
+radio.set_group(1)
+segnale = 0
